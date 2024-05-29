@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @jhbelalc
-- 👀 I’m interested in learning top technologies
-- 🌱 I’m currently learning Azure Devops, Python
-- 💞️ I would like to collaborate on new ideas
+- 👀 I’m working with and interested in learning top technologies
+- 🌱 I’m currently working / learning Azure Devops, Python
+- 💞️ I like to share my knowledge and learn from others
 - 📫 How to reach me: Skype-> jhbelalc or jhbelalc@gmail.com or www.belvicto.co 
 
 <!---
