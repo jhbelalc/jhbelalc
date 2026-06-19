@@ -90,8 +90,7 @@ const SECTIONS = [
           <ul class="job-bullets">
             <li>Spearhead AI adoption, implementing LLM-assisted workflows and vibe-coding methodologies</li>
             <li>Lead legacy modernization from monolithic .NET Framework to cloud-native AWS architecture</li>
-            <li>Architect CI/CD pipelines via Azure DevOps with SonarCloud quality gates</li>
-            <li>Promoted from Senior Developer to Lead Engineer within 90 days</li>
+            <li>Deliver Twilio and SendGrid API integrations (SMS, Voice, Email) for enterprise clients via programmatic sub-account management</li>
           </ul>
         </div>
         <div class="job">
