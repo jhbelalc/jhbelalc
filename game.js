@@ -160,7 +160,7 @@ other latam countries in record time</li>
     heading: "Let's Connect",
     body: `
       <div class="panel-section">
-        <p>Open to senior engineering, technical leadership, and consulting engagements — remote-first, globally available.</p>
+        <p>Committed to knowledge collaboration in software engineering and technical leadership, connecting with peers globally to share insights, experiences, and best practices.</p>
         <br>
         <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
           <div style="display:flex;align-items:center;gap:10px;background:#0d1422;border:1px solid #1a2a40;border-radius:8px;padding:10px 14px;">
