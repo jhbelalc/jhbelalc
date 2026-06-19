@@ -16,11 +16,11 @@ const SECTIONS = [
       <div class="panel-section">
         <p>Seasoned engineering executive with 25+ years delivering software across five countries, including 12+ years in technical leadership. Experienced in driving AI adoption at an organizational level — from integrating AI-powered tooling into development pipelines to leading teams through technology modernization.</p>
         <br>
-        <p>Currently leading AI implementation initiatives at Sightview, applying LLM-based solutions, intelligent automation, and vibe-coding methodologies to accelerate delivery. Combines deep full-stack engineering expertise with strong people leadership (teams up to 35), agile program management, and a track record of measurable outcomes.</p>
+        <p>Currently leading AI implementation initiatives, applying LLM-based solutions, intelligent automation, and vibe-coding methodologies to accelerate delivery. Combines deep full-stack engineering expertise with strong people leadership (experience leading teams up to 35), agile program management, and a track record of measurable outcomes.</p>
         <br>
         <div class="skill-grid" style="margin-bottom:12px;">
           <span class="skill-tag">AI Strategy & Implementation</span>
-          <span class="skill-tag">Engineering Leadership (35+ HC)</span>
+          <span class="skill-tag">Engineering Leadership experience (35+ HC)</span>
           <span class="skill-tag">Cloud Architecture</span>
           <span class="skill-tag">LLM Integration & Automation</span>
           <span class="skill-tag">CI/CD · DevOps</span>
@@ -31,7 +31,7 @@ const SECTIONS = [
         <p style="color:#4a7ab5;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;">Languages</p>
         <p style="margin-top:5px;">Spanish (Native) &nbsp;·&nbsp; English C1/C2 &nbsp;·&nbsp; Portuguese B1</p>
       </div>`,
-    speech: "Engineering executive leading AI adoption, cloud modernization, and teams of up to 35 across five countries."
+    speech: "Engineering executive leading AI adoption, cloud modernization, and experience leading teams of up to 35 across the world."
   },
   {
     eyebrow: 'Technical Skills',
