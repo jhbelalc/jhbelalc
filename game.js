@@ -104,10 +104,11 @@ const SECTIONS = [
         </div>
         <div class="job">
           <div class="job-title">Software Development Leader I</div>
-          <div class="job-company">Kantar IBOPE Media · Bogotá · Jan 2023 – Feb 2024</div>
+          <div class="job-company">Kantar IBOPE Media · Bogotá · Jun 2021 – Feb 2024</div>
           <ul class="job-bullets">
             <li>Directed 11 direct reports + 30 indirect contributors across LATAM, USA, and Europe</li>
-            <li>Azure DevOps KPI dashboards enabling 90%+ task completion rates</li>
+            <li>Built and led a new Colombia-based development team that absorbed and resolved backlogs from
+other latam countries in record time</li>
           </ul>
         </div>
         <div class="job">
@@ -127,7 +128,7 @@ const SECTIONS = [
           </ul>
         </div>
       </div>`,
-    speech: "From Cali to Houston to Spain to LATAM — 25 years leading teams and shipping software that creates measurable impact."
+    speech: "From Colombia to Usa to Spain to LATAM — 25 years leading teams and shipping software that creates measurable impact."
   },
   {
     eyebrow: 'Education & Certifications',
