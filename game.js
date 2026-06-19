@@ -267,6 +267,8 @@ function init() {
   });
   window.addEventListener('keyup', e => { keys[e.key] = false; });
 
+  initJoystick();
+
   document.querySelectorAll('.nav-btn').forEach(b =>
     b.addEventListener('click', () => teleport(+b.dataset.section))
   );
@@ -546,15 +548,15 @@ function updatePlayer(dt) {
   const mspd = MOV_SPD  * 60 * dt;
   const tspd = TURN_SPD * 60 * dt;
 
-  if (keys['ArrowLeft']  || keys['a'] || keys['A']) P.angle += tspd;
-  if (keys['ArrowRight'] || keys['d'] || keys['D']) P.angle -= tspd;
+  if (keys['ArrowLeft']  || keys['a'] || keys['A'] || keys['_joy_left'])  P.angle += tspd;
+  if (keys['ArrowRight'] || keys['d'] || keys['D'] || keys['_joy_right']) P.angle -= tspd;
 
   let moved = false;
   const fx = Math.sin(P.angle), fz = Math.cos(P.angle);
-  if (keys['ArrowUp']   || keys['w'] || keys['W']) {
+  if (keys['ArrowUp']   || keys['w'] || keys['W'] || keys['_joy_fwd']) {
     [P.x, P.z] = clampHex(P.x + fx * mspd, P.z + fz * mspd); moved = true;
   }
-  if (keys['ArrowDown'] || keys['s'] || keys['S']) {
+  if (keys['ArrowDown'] || keys['s'] || keys['S'] || keys['_joy_back']) {
     [P.x, P.z] = clampHex(P.x - fx * mspd, P.z - fz * mspd); moved = true;
   }
   P.moving = moved;
@@ -717,6 +719,55 @@ function teleport(sIdx) {
   P.z = (HEX_A - 2.0) * Math.cos(a);
   // Face back toward center (camera side) after arriving
   P.angle = a + Math.PI;
+}
+
+// ─── JOYSTICK ────────────────────────────────────────────────────────────────
+function initJoystick() {
+  const zone  = document.getElementById('joystick-zone');
+  const knob  = document.getElementById('joystick-knob');
+  if (!zone) return;
+
+  const R = 33; // max knob travel radius (px)
+  let active = false, tid = null, jx = 0, jy = 0;
+
+  function onStart(e) {
+    e.preventDefault();
+    active = true; tid = e.touches ? e.touches[0].identifier : null;
+    update(e);
+  }
+  function onMove(e) {
+    e.preventDefault();
+    if (!active) return;
+    update(e);
+  }
+  function onEnd(e) {
+    active = false; jx = 0; jy = 0;
+    knob.style.transform = 'translate(-50%,-50%)';
+    keys['_joy_fwd'] = false; keys['_joy_back'] = false;
+    keys['_joy_left'] = false; keys['_joy_right'] = false;
+  }
+  function update(e) {
+    const touch = e.touches ? e.touches[0] : e;
+    const rect  = zone.getBoundingClientRect();
+    const cx = rect.left + rect.width  / 2;
+    const cy = rect.top  + rect.height / 2;
+    let dx = touch.clientX - cx;
+    let dy = touch.clientY - cy;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist > R) { dx = dx/dist*R; dy = dy/dist*R; }
+    jx = dx / R; jy = dy / R;
+    knob.style.transform = `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`;
+    // Map joystick to virtual keys
+    keys['_joy_fwd']   = jy < -0.25;
+    keys['_joy_back']  = jy >  0.25;
+    keys['_joy_left']  = jx < -0.25;
+    keys['_joy_right'] = jx >  0.25;
+  }
+
+  zone.addEventListener('touchstart', onStart, { passive: false });
+  zone.addEventListener('touchmove',  onMove,  { passive: false });
+  zone.addEventListener('touchend',   onEnd);
+  zone.addEventListener('touchcancel',onEnd);
 }
 
 // ─── ANIMATE ─────────────────────────────────────────────────────────────────
