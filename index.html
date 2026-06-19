@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Harold Belalcazar Lozano — Senior Lead Engineer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading">
+  <div class="load-name">JHBL</div>
+  <div class="load-sub">Loading experience</div>
+  <div class="load-bar-wrap"><div class="load-bar" id="load-bar"></div></div>
+</div>
+
+<div id="canvas-container"></div>
+
+<div id="hud-top">
+  <div>
+    <div id="hud-name">John Harold Belalcazar Lozano</div>
+    <div id="hud-title">Senior Engineering Leader · AI-Driven · 25+ Years · Cali, Colombia</div>
+  </div>
+  <div id="hud-contact">
+    <a href="mailto:jhbelalc@gmail.com">jhbelalc@gmail.com</a><br>
+    <span>+57 ### ### ##10</span>
+  </div>
+</div>
+
+<div id="info-panel" class="hidden">
+  <div id="panel-eyebrow">Section</div>
+  <div id="panel-heading">Welcome</div>
+  <div id="panel-body"></div>
+</div>
+
+<div id="section-dots">
+  <div class="dot active" data-section="0" title="Home"></div>
+  <div class="dot" data-section="1" title="About"></div>
+  <div class="dot" data-section="2" title="Skills"></div>
+  <div class="dot" data-section="3" title="Experience"></div>
+  <div class="dot" data-section="4" title="Education"></div>
+  <div class="dot" data-section="5" title="Contact"></div>
+</div>
+
+<div id="proximity-label" class="hidden">
+  <div id="prox-section">About</div>
+  <div id="prox-arrow">▶</div>
+</div>
+
+<div id="speech-bubble" class="hidden">
+  <div id="speech-text">Welcome! Walk freely — approach the glowing walls to explore each section.</div>
+</div>
+
+<div id="hint">← → Girar · ↑ ↓ Mover · o clic en secciones</div>
+
+<nav id="nav-bar">
+  <button class="nav-btn active" data-section="0"><span class="nav-icon">⌂</span>Home</button>
+  <button class="nav-btn" data-section="1"><span class="nav-icon">◉</span>About</button>
+  <button class="nav-btn" data-section="2"><span class="nav-icon">◈</span>Skills</button>
+  <button class="nav-btn" data-section="3"><span class="nav-icon">◆</span>Experience</button>
+  <button class="nav-btn" data-section="4"><span class="nav-icon">◎</span>Education</button>
+  <button class="nav-btn" data-section="5"><span class="nav-icon">◇</span>Contact</button>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+  onerror="document.getElementById('loading').innerHTML='<div style=\'color:#f66;font-size:14px;padding:20px;\'>Error: no se pudo cargar Three.js — verifica tu conexión a internet.</div>'"></script>
+<script src="game.js"></script>
+</body>
+</html>
