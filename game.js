@@ -5,7 +5,7 @@ if (typeof THREE === 'undefined') { throw new Error('Three.js no cargó'); }
 const SECTIONS = [
   {
     eyebrow: 'Welcome',
-    heading: "Hello, I'm John",
+    heading: "Glad to have you here!",
     body: `
       <div class="panel-section">
         <p>This is my first project using three.js wonderful tool to create imersive experiences.</p>
@@ -664,10 +664,17 @@ function checkProximity() {
     if (sIdx >= 0 && dist < nearDist) { nearDist = dist; nearWall = i; }
   }
 
-  const newSec = nearWall >= 0 ? wallData[nearWall].sIdx : 0;
-  if (newSec !== activeSection) {
-    activeSection = newSec;
-    showSection(newSec);
+  if (nearWall >= 0) {
+    const newSec = wallData[nearWall].sIdx;
+    if (newSec !== activeSection) {
+      activeSection = newSec;
+      showSection(newSec);
+    }
+  } else {
+    if (activeSection !== -1) {
+      activeSection = -1;
+      showSection(0);
+    }
   }
 }
 
@@ -678,14 +685,21 @@ function showSection(idx) {
 
   const s = SECTIONS[idx];
   const panel = document.getElementById('info-panel');
-  panel.classList.add('hidden');
 
-  setTimeout(() => {
+  if (idx === 0) {
     document.getElementById('panel-eyebrow').textContent = s.eyebrow;
     document.getElementById('panel-heading').textContent = s.heading;
-    document.getElementById('panel-body').innerHTML = idx === 0 ? homeBody() : s.body;
-    if (idx !== 0) panel.classList.remove('hidden');
-  }, 280);
+    document.getElementById('panel-body').innerHTML = homeBody();
+    panel.classList.remove('hidden');
+  } else {
+    panel.classList.add('hidden');
+    setTimeout(() => {
+      document.getElementById('panel-eyebrow').textContent = s.eyebrow;
+      document.getElementById('panel-heading').textContent = s.heading;
+      document.getElementById('panel-body').innerHTML = s.body;
+      panel.classList.remove('hidden');
+    }, 280);
+  }
 
   document.getElementById('speech-bubble').classList.remove('hidden');
   document.getElementById('speech-text').textContent = s.speech;
@@ -700,18 +714,18 @@ function showSection(idx) {
 function homeBody() {
   return `
     <div style="font-size:22px;font-weight:700;color:#dce6f5;line-height:1.3;margin-bottom:12px;">
-      Senior Lead Engineer<br><span style="color:#4a7ab5;">& Technical Manager</span>
+      Interactive experience<br><span style="color:#4a7ab5;">to learn about me.</span>
     </div>
-    <p>25+ años entregando software. 12+ años liderando equipos en 3 continentes.</p>
+    <p>Some of my favorite technologies and experiences.</p>
     <br>
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">
       <span style="background:#0d1a2e;border:1px solid #1e3050;border-radius:4px;padding:4px 10px;font-size:11px;color:#6a9ad8;">AWS · Azure</span>
       <span style="background:#0d1a2e;border:1px solid #1e3050;border-radius:4px;padding:4px 10px;font-size:11px;color:#6a9ad8;">C# · .NET</span>
       <span style="background:#0d1a2e;border:1px solid #1e3050;border-radius:4px;padding:4px 10px;font-size:11px;color:#6a9ad8;">Python · AI</span>
-      <span style="background:#0d1a2e;border:1px solid #1e3050;border-radius:4px;padding:4px 10px;font-size:11px;color:#6a9ad8;">React · Angular</span>
+      <span style="background:#0d1a2e;border:1px solid #1e3050;border-radius:4px;padding:4px 10px;font-size:11px;color:#6a9ad8;">SQL Server · Oracle</span>
     </div>
     <br>
-    <p style="color:#3a5a80;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;">← → girar · ↑ ↓ avanzar · acércate a una pared para leer</p>
+    <p style="color:#3a5a80;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;">← → rotate · ↑ ↓ move · get close to a wall to read or teleport by clicking the buttons.</p>
   `;
 }
 
