@@ -6,7 +6,13 @@ const SECTIONS = [
   {
     eyebrow: 'Welcome',
     heading: "Hello, I'm John",
-    body: '',
+    body: `
+      <div class="panel-section">
+        <p>This is my first project using three.js wonderful tool to create imersive experiences.</p>
+        <br>
+        <p>Please feel free to navigate using the keyboard arrows or if you are in a phone, use the control tool that appears on the screen.</p>
+        <br>
+      </div>`,
     speech: "Welcome! Walk freely in the hexagonal space — approach each glowing wall to explore a section of my career."
   },
   {
